@@ -1,4 +1,3 @@
-import "./styles.css";
 import profilePhoto from "./assets/profile.jpg";
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -14,7 +13,7 @@ const profile = {
   initials: "PC",
   role: "Developer · AI/ML · Cybersecurity",
   location: "Bengaluru, India",
-  email: "hoysalchengappa28@example.com",
+  email: "hoysalchengappa28@gmail.com",
   github: "https://github.com/warnii",
   linkedin: "https://www.linkedin.com/in/hoysal-chengappa-pc-321607349/",
 };
@@ -40,16 +39,16 @@ const projects = [
     link: "https://github.com/warnii/social-media-sentiment-analysis",
     status: "College Project",
   },
-{
-  number: "03",
-  title: "SOC Detective",
-  category: "Security Operations",
-  description: "A cybersecurity project focused on security operations and investigation. Explore the repository for its implementation and features.",
-  tags: ["Cybersecurity", "SOC", "Investigation"],
-  icon: ShieldCheck,
-  link: "https://github.com/warnii/SOC-detective",
-  status: "Project",
-},
+  {
+    number: "03",
+    title: "SOC Detective",
+    category: "Security Operations",
+    description: "A cybersecurity project focused on security operations and investigation. Explore the repository for its implementation and features.",
+    tags: ["Cybersecurity", "SOC", "Investigation"],
+    icon: ShieldCheck,
+    link: "https://github.com/warnii/SOC-detective",
+    status: "Project",
+  },
   {
     number: "04",
     title: "Cybersecurity Labs",
@@ -79,10 +78,10 @@ function App() {
           <span className="brand-mark">H<span>.</span></span>
           <span className="brand-name">Hoysal<span>chengappa PC</span></span>
         </a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" aria-expanded={menuOpen} aria-controls="site-nav">
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
-        <nav className={menuOpen ? "nav nav-open" : "nav"}>
+        <nav id="site-nav" aria-label="Main" className={menuOpen ? "nav nav-open" : "nav"}>
           {["About", "Skills", "Projects", "Research", "Contact"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>{item}</a>
           ))}
@@ -195,13 +194,15 @@ function App() {
                   </div>
                   <div className="project-side">
                     <span className="project-status">{project.status}</span>
-                    <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><ArrowUpRight size={19} /></a>
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><ArrowUpRight size={19} /></a>
+                    )}
                   </div>
                 </article>
               );
             })}
           </div>
-          <p className="project-note">Project descriptions reflect current learning and work. Add demos, screenshots, and repository-specific links as each project is published.</p>
+          <p className="project-note">Project descriptions reflect current learning and work.</p>
         </section>
 
         <section className="background section-wrap" id="research">
@@ -215,14 +216,6 @@ function App() {
               <article className="timeline-item">
                 <div className="timeline-icon"><GraduationCap size={18} /></div>
                 <div><span className="timeline-date">2024 — 2027 · EXPECTED</span><h3>Bachelor of Computer Applications</h3><p>Yenepoya (Deemed to be University), Bengaluru</p><span className="timeline-detail">AI/ML · Programming · Cybersecurity</span></div>
-              </article>
-              <article className="timeline-item">
-                <div className="timeline-icon"><BriefcaseBusiness size={18} /></div>
-                <div><span className="timeline-date">EXPERIENCE</span><h3>Part-time team member</h3><p>KFC · Bengaluru</p><span className="timeline-detail">Customer service, teamwork, and day-to-day operations</span></div>
-              </article>
-              <article className="timeline-item">
-                <div className="timeline-icon"><FlaskConical size={18} /></div>
-                <div><span className="timeline-date">RESEARCH · IN PROGRESS</span><h3>AI-assisted academic writing</h3><p>Prompt engineering literacy & perceived authorship authenticity</p><span className="timeline-detail">Undergraduate research topic · early-stage progress</span></div>
               </article>
             </div>
           </div>
@@ -245,7 +238,7 @@ function App() {
       </main>
 
       <footer className="footer section-wrap">
-        <a className="brand" href="#home"><span className="brand-mark">h<span>.</span></span></a>
+        <a className="brand" href="#home"><span className="brand-mark">H<span>.</span></span></a>
         <span>© {new Date().getFullYear()} Hoysal Chengappa PC. Made with curiosity.</span>
         <a href="#home">Back to top ↑</a>
       </footer>

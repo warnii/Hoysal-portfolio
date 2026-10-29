@@ -1,38 +1,38 @@
 # Hoysal Chengappa — Developer Portfolio
 
-A responsive, minimal professional light-theme portfolio built with React + Vite.
+A responsive portfolio built with React and Vite. It highlights Hoysal's background,
+skills, selected projects, research interests, and contact links.
 
-## Requirements
-- Node.js 20.19+ or 22.12+ (recommended)
-- npm
+## Getting started
 
-## Run locally
-1. Extract this project folder.
-2. Open a terminal in `hoysal-portfolio`.
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open the local URL Vite prints (usually `http://localhost:5173`).
+Requirements: Node.js 18.x, 20.x, or 22+, and npm.
 
-## Production build
+```bash
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Vite (usually `http://localhost:5173`).
+
+## Build
+
 ```bash
 npm run build
 npm run preview
 ```
 
-## Personalize before publishing
-Open `src/main.jsx` and update the `profile` object:
-- `email`: replace `YOUR_EMAIL@example.com`
-- `linkedin`: replace `YOUR-LINKEDIN` with your actual LinkedIn profile slug
+The production-ready site is generated in `dist/`.
 
-Review project descriptions and add repository-specific URLs, screenshots, demos, and verified completion/status details before publishing. The project cards intentionally avoid claiming unverified metrics or deployment status.
+## Before publishing
 
-## Deploy
-You can deploy the `dist/` folder after `npm run build` to GitHub Pages, Netlify, or Vercel. For Vercel/Netlify, importing the repository and using the default Vite build settings is usually enough:
+Review the `profile` and `projects` data in `src/main.jsx`. Replace the example email
+address, verify profile and project links, and update descriptions and statuses to
+reflect the latest work.
+
+## Deployment
+
+Deploy the contents of `dist/` to a static hosting provider. For Vercel or Netlify,
+the default Vite settings work:
+
 - Build command: `npm run build`
 - Output directory: `dist`
